@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Vacancy List</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<header>
+    <div class="navbar">
+        <a href="/explorerList">Explorer</a>
+        <br/><br/>
+        <a href="/wordsList">Words</a>
+        <br/><br/>
+        <a href="/wordsOnlySkill">WordsOnlySkill</a>
+        <br/><br/>
+    </div>
+</header>
+<h1>Vacancy List</h1>
+<div>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>Explorer_Id</th>
+            <th>Vacancy_url</th>
+            <th>Status</th>
+            <th>Date</th>
+            <th>Company</th>
+            <th>Location</th>
+            <th>Title</th>
+        </tr></thead>
+        <tbody>
+        <tr th:each ="vacancy : ${vacancyList}">
+            <td><a th:utext="${vacancy.id}" th:href="@{/descriptionVacancy(idVacancy=${vacancy.id})}"></a></td>
+            <td th:utext="${vacancy.explorerId}"></td>
+            <td th:utext="${vacancy.vacancyUrl}"></td>
+            <td th:utext="${vacancy.vacancyStatus}"></td>
+            <td th:utext="${vacancy.date}"></td>
+            <td th:utext="${vacancy.companyName}"></td>
+            <td th:utext="${vacancy.location}"></td>
+            <td th:utext="${vacancy.vacancyTitle}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

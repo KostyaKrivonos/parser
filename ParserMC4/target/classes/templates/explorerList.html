@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Explorer List</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<header>
+    <div class="navbar">
+        <a href="/wordsList">Words</a>
+        <br/><br/>
+        <a href="/wordsOnlySkill">WordsOnlySkill</a>
+        <br/><br/>
+    </div>
+</header>
+<h1>Explorer List</h1>
+<div>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>query</th>
+            <th>Status</th>
+            <th>Date</th>
+            <th>Title</th>
+        </tr></thead>
+        <tbody>
+        <tr th:each ="explorer : ${explorerList}">
+            <td><a th:utext="${explorer.id}" th:href="@{/vacancyList(idExplorer=${explorer.id})}"></a></td>
+            <td th:utext="${explorer.query}"></td>
+            <td th:utext="${explorer.status}"></td>
+            <td th:utext="${explorer.date}"></td>
+            <td th:utext="${explorer.title}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<!--<div class="pagination">
+    <a href="#">&laquo;</a>
+    <a href="#">1</a>
+    <a class="active" href="#">2</a>
+    <a href="#">3</a>
+    <a href="#">4</a>
+    <a href="#">5</a>
+    <a href="#">6</a>
+    <a href="#">&raquo;</a>
+</div>-->
+</body>
+</html>

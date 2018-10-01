@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Vacancy description</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<header>
+    <div class="navbar">
+        <a href="/explorerList">Explorer</a>
+        <br/><br/>
+        <!--<a href="javascript:history.back()">Vacancy</a>-->
+        <a href="#" onclick="history.back()">Vacancy</a>
+        <br/><br/>
+        <a href="/wordsList">Words</a>
+        <br/><br/>
+        <a href="/wordsOnlySkill">WordsOnlySkill</a>
+        <br/><br/>
+    </div>
+</header>
+<h1>Vacancy description</h1>
+<div>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>Vacancy_id</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th>Date</th>
+        </tr></thead>
+        <tbody>
+        <tr th:object="${description}">
+            <td th:utext="${description.id}"></td>
+            <td th:utext="${description.vacancyId}"></td>
+            <td th:utext="${description.description}"></td>
+            <td th:utext="${description.status}"></td>
+            <td th:utext="${description.date}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

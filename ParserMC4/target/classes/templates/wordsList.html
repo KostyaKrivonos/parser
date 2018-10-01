@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Words list</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<header>
+    <div class="navbar">
+        <a href="/explorerList">Explorer</a>
+        <br/><br/>
+        <a href="/wordsOnlySkill">WordsOnlySkill</a>
+        <br/><br/>
+    </div>
+</header>
+<h1>Words list</h1>
+<div>
+    <span class="alert alert-success" role="alert" style="color:green;font-style:italic;" >
+        <p th:utext = "${message}"></p>
+    </span>
+</div>
+<div>
+    <form th:action="@{/words}" method="post">
+    <table border="1">
+
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>Word</th>
+            <th>Date</th>
+            <th>Type</th>
+            <th>Skill/NotSkill</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="word : ${wordsList}">
+            <td th:utext="${word.id}"></td>
+            <td th:utext="${word.word}"></td>
+            <td th:utext="${word.date}"></td>
+            <td th:if="${word.getType() == 0}" th:text="word">Jill</td>
+            <td th:if="${word.getType() == 1}" th:text="skill">Jill</td>
+            <td>
+                <input th:if="${word.getType() == 0}" class="check" type="checkbox" name="id"
+                       th:value="${word.getId()}">
+                <input th:if="${word.getType() == 1}" class="check" type="checkbox" name="id"
+                       th:value="${word.getId()}" checked="checked">
+                <label>Skill</label>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <input class="button" type="submit" value="Save"/>
+    </form>
+</div>
+
+</body>
+</html>
